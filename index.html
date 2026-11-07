@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#132b4f"><meta name="description" content="ACTA — organized school announcements, events, and updates.">
+  <link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <title>ACTA | School Announcements</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar"><div class="topbar-spacer"></div><div class="top-actions"><span id="connectionState" class="connection"><i></i><span>Preview mode</span></span><button id="menuToggle" class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="appMenu"><span></span><span></span><span></span></button><div id="appMenu" class="app-menu" hidden><button id="themeToggle" type="button" class="menu-item">☾ <span>Dark mode</span></button><button id="notifyBtn" type="button" class="menu-item"><svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><span>Enable reminders</span></button><button id="installBtn" type="button" class="menu-item">⇩ <span>Install ACTA</span></button><button id="logoutBtn" type="button" class="menu-item" hidden>↪ <span>Sign out</span></button></div></div></header>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="side-brand" href="#feed" aria-label="ACTA home"><img src="assets/icon.svg" alt="ACTA emblem"><strong>ACTA</strong><small>ANNOUNCEMENTS · EVENTS · UPDATES</small></a>
+    <nav id="nav" aria-label="Main navigation">
+      <button class="nav-item active" data-page="feed"><span>⌂</span> Home</button>
+      <button class="nav-item" data-page="calendar"><span>▦</span> Calendar</button>
+      <button class="nav-item staff-only" data-page="manage" hidden><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 9h8M8 13h8M8 17h5"/></svg></span> Manage announcements</button>
+      <button class="nav-item admin-only" data-page="admin" hidden><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span> Manage staff accounts</button>
+    </nav>
+    <div class="sidebar-bottom"><div class="sidebar-divider"></div><button id="loginBtn" class="administrator-link">⚙ <span>Administrator</span></button><p>For authorized school personnel only.</p></div>
+  </aside>
+  <div class="workspace">
+    <section class="hero-banner"><div class="hero-copy"><span>Welcome to</span><h1>ACTA</h1><p>Official Announcements of Mariveles National High School – Poblacion</p></div></section>
+    <div class="content-grid">
+      <main id="main" tabindex="-1">
+        <section class="page-heading"><div><h2 id="pageTitle">Latest Announcements</h2><p id="pageSubtitle" class="muted">Important updates for students, parents, and staff.</p></div><button id="newBtn" class="button primary staff-only" hidden>＋ New announcement</button></section>
+        <div id="notice" class="notice" hidden></div><div id="content" aria-live="polite"></div>
+      </main>
+      <aside class="right-rail" aria-label="School information">
+        <section class="about-card"><div><strong>About ACTA</strong><p>A central place for school announcements and updates.</p></div></section>
+      </aside>
+    </div>
+  </div>
+</div>
+<footer>ACTA · School announcements and updates</footer>
+<div id="modal" class="modal" hidden><div class="modal-backdrop" data-close></div><section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div id="modalContent"></div></section></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" onerror="this.onerror=null;this.src='https://unpkg.com/@supabase/supabase-js@2'"></script>
+<script src="config.js"></script><script src="app.js"></script>
+</body></html>
